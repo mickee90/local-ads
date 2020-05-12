@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/login', 'Web\WelcomeController@index')->name('login');
+Route::get('/login', 'Web\WelcomeController@login')->name('login');
 Route::get('/', 'Web\WelcomeController@index')->name('home');
 
 Auth::routes();
 
-Route::get('{path}', 'Web\WelcomeController@index')->where('path', '([A-z\d\-/_.]+)?');
+Route::get('/{any}', 'Web\WelcomeController@index')->where('any', '.*');
